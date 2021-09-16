@@ -18,10 +18,10 @@ Project Organization
       │   ├── __init__.py
       │   └── build_features.py
       ├── submissions
-      │   ├── milestone1_groupname
-      │   ├── milestone2_groupname
-      │   ├── milestone3_groupname
-      │   └── milestone4_groupname
+      │   ├── milestone1_pinkdrink
+      │   ├── milestone2_pinkdrink
+      │   ├── milestone3_pinkdrink
+      │   └── milestone4_pinkdrink
       └── test_project.py
 
 --------
