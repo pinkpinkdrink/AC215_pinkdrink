@@ -133,3 +133,7 @@ dmypy.json
 
 # Node Modules
 *node_modules
+
+# persistent and secret
+*secrets
+*persistent-folder

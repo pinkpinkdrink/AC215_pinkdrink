@@ -38,7 +38,7 @@ const styles = theme => ({
     },
     preview: {
         minWidth: "500px",
-        maxHeight: "800px",
+        minHeight: "500px",
     },
     help: {
         color: "#302f2f"

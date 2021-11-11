@@ -13,6 +13,7 @@ google-cloud-storage = "*"
 tensorflow = "*"
 pandas = "*"
 python-multipart = "*"
+gsutil = "*"
 
 [requires]
 python_version = "3.8"
