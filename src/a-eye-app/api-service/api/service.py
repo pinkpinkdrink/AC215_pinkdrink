@@ -37,3 +37,4 @@ async def startup():
     # Start the tracker service
     asyncio.create_task(tracker_service.track())
 
+
