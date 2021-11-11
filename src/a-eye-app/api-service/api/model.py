@@ -195,6 +195,6 @@ def predict(image_path):
     result, _ = evaluate(encoder, decoder, tokenizer, image_path)
     # print('Prediction Caption:', ' '.join(result))
     caption = ' '.join(result[:-1])
-    return caption
+    return {"prediction_label" : caption}
 
     

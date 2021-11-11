@@ -1,11 +1,10 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 import asyncio
-from api.tracker import TrackerService
-
-
-# Initialize Tracker Service
-tracker_service = TrackerService()
+import os
+from fastapi import File
+from tempfile import TemporaryDirectory
+from api import model
 
 
 # Setup FastAPI app
@@ -31,10 +30,19 @@ async def get_index():
         "message": "Welcome to the API Service"
     }
 
-@app.on_event("startup")
-async def startup():
-    # Startup tasks
-    # Start the tracker service
-    asyncio.create_task(tracker_service.track())
+@app.post("/predict")
+async def predict(
+        file: bytes = File(...)
+):
+    print("predict file:", len(file), type(file))
 
+    # Save the image
+    with TemporaryDirectory() as image_dir:
+        image_path = os.path.join(image_dir, "test.png")
+        with open(image_path, "wb") as output:
+            output.write(file)
 
+        # Make prediction
+        prediction_results = model.predict(image_path)
+
+    return prediction_results

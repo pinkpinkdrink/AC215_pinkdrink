@@ -12,6 +12,7 @@ google-auth = "*"
 google-cloud-storage = "*"
 tensorflow = "*"
 pandas = "*"
+python-multipart = "*"
 
 [requires]
 python_version = "3.8"
