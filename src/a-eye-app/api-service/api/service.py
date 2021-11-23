@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import FileResponse
 import asyncio
 import os
 from fastapi import File
@@ -31,9 +32,7 @@ async def get_index():
     }
 
 @app.post("/predict")
-async def predict(
-        file: bytes = File(...)
-):
+async def predict(file: bytes = File(...)):
     print("predict file:", len(file), type(file))
 
     # Save the image
@@ -46,3 +45,9 @@ async def predict(
         prediction_results = model.predict(image_path)
 
     return prediction_results
+
+@app.get("/text2audio")
+async def text2audio(path: str = Query(..., description="Audio path")):
+    print(path)
+
+    return FileResponse(path, media_type="audio/mp3")

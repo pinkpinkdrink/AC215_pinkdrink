@@ -49,6 +49,20 @@ const styles = theme => ({
     caption: {
         color: "#183E3C",
     },
+    captionTable: {
+        width: "95%",
+        maxWidth: "800px",
+        marginTop: "15px",
+        marginBottom: "25px",
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        border: "10px solid #183E3C",
+    },
+    playButton: {
+        backgroundColor: "transparent",
+        border: "none",
+        cursor: "pointer",
+    }
 });
 
 export default styles;

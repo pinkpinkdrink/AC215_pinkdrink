@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { withStyles } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 import DataService from "../../services/DataService";
 import styles from './styles';
@@ -38,24 +42,45 @@ const Home = (props) => {
                 setPrediction(response.data);
             })
     }
+    const handlePlayAudio = (path) => {
+        let response = DataService.Text2Audio(path)
+        let audio = new Audio(response)
+        audio.play()
+    }
 
     return (
         <div className={classes.root}>
             <main className={classes.main}>
                 <Container maxWidth="md" className={classes.container}>
                     {prediction &&
-                        <Typography variant="h4" gutterBottom align='center'>
-                            <span className={classes.caption}>Caption:&nbsp;&nbsp;{prediction.prediction_label}</span>
-                        </Typography>
+                        <Table className={classes.captionTable}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Caption</TableCell>
+                                    <TableCell>Audio</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {prediction.prediction_captions.map((caption, idx) => 
+                                <TableRow key={idx}>
+                                    <TableCell>{caption}</TableCell>
+                                    <TableCell>
+                                        < div >
+                                            <button className={classes.playButton} onClick={() => handlePlayAudio(prediction.audio_paths[idx])}><span className="material-icons">volume_up</span></button>
+                                        </div >
+                                    </TableCell>
+                                </TableRow>)}
+                            </TableBody>
+                        </Table>
                     }
                     <div className={classes.dropzone} onClick={() => handleImageUploadClick()}>
                         <input
                             type="file"
                             accept="image/*"
                             capture="camera"
-                            on
-                            autocomplete="off"
-                            tabindex="-1"
+                            on='true'
+                            autoComplete="off"
+                            tabIndex="-1"
                             className={classes.fileInput}
                             ref={inputFile}
                             onChange={(event) => handleOnChange(event)}

@@ -13,6 +13,9 @@ const DataService = {
             }
         });
     },
+    Text2Audio: function (path) {
+        return BASE_API_URL + "/text2audio?path=" + path
+    },
 }
 
 export default DataService;

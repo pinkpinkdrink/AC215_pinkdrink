@@ -193,8 +193,8 @@ def predict(image_path):
     with open('/persistent/model_weights/inception_gru_full_epoch=5/model_weights/tokenizer/tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
     result, _ = evaluate(encoder, decoder, tokenizer, image_path)
-    # print('Prediction Caption:', ' '.join(result))
     caption = ' '.join(result[:-1])
-    return {"prediction_label" : caption}
+    return {"prediction_captions" : [caption, caption, caption],
+            "audio_paths": ['test.mp3', 'test2.mp3', 'test3.mp3']}
 
     
