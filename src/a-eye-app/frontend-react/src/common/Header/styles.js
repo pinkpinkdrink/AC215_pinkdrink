@@ -12,8 +12,8 @@ const styles = theme => ({
         textDecoration: "inherit",
     },
     appTitle: {
-        fontSize: "3.286rem",
-        fontFamily: "monospace",
+        fontSize: "2.586rem",
+        fontFamily: "sans-serif",
         lineHeight: "2.33",
         fontWeight: "800",
         letterSpacing: "1px",

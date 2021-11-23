@@ -49,5 +49,10 @@ async def predict(file: bytes = File(...)):
 @app.get("/text2audio")
 async def text2audio(path: str = Query(..., description="Audio path")):
     print(path)
-
     return FileResponse(path, media_type="audio/mp3")
+
+@app.post("/set-language")
+async def setLanguage(language: str = Query(..., description="Language")):
+    print(language)
+    # TODO: save language setting for later access
+    return 'Language was set to {}'.format(language)
