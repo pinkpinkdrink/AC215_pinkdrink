@@ -57,7 +57,7 @@
     # Create a folder on persistent disk
     - name: Create persistent directory
       file:
-        path: "/mnt/disk-1/persistent"
+        path: "/mnt/disk-1/persistent/model_weights"
         state: "directory"
         mode: 0777
 
