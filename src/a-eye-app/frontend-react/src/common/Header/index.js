@@ -22,7 +22,7 @@ const Header = (props) => {
 
     // State
     const [anchorEl, setAnchorEl] = useState(null);
-    const [selectedIndex, setSelectedIndex] = useState(1);
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const open = Boolean(anchorEl);
     const handleClickListItem = (event) => {
         setAnchorEl(event.currentTarget);

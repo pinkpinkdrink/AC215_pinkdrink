@@ -194,7 +194,6 @@ def predict(image_path):
         tokenizer = pickle.load(handle)
     result, _ = evaluate(encoder, decoder, tokenizer, image_path)
     caption = ' '.join(result[:-1])
-    return {"prediction_captions" : [caption, 'This is the second caption', 'This is the third caption'],
-            "audio_paths": ['test.mp3', 'test2.mp3', 'test3.mp3']}
+    return caption
 
     

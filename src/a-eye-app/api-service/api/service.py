@@ -5,7 +5,7 @@ import asyncio
 import os
 from fastapi import File
 from tempfile import TemporaryDirectory
-from api import model
+from api import model, model2
 
 
 # Setup FastAPI app
@@ -42,7 +42,11 @@ async def predict(file: bytes = File(...)):
             output.write(file)
 
         # Make prediction
-        prediction_results = model.predict(image_path)
+        caption1 = model.predict(image_path)
+        caption2 = model2.predict(image_path)
+
+        prediction_results = {"prediction_captions" : [caption1, caption2, 'This is the third caption'],
+                              "audio_paths": ['test.mp3', 'test2.mp3', 'test3.mp3']}
 
     return prediction_results
 
