@@ -13,7 +13,7 @@ export SECRETS_DIR=$(pwd)/../secrets/
 
 export GCP_PROJECT="a-eye-app-project"
 export GCP_ZONE="us-central1-a"
-export GOOGLE_APPLICATION_CREDENTIALS=/secrets/bucket-reader.json
+export GOOGLE_APPLICATION_CREDENTIALS=/secrets/gcp-service.json
 
 # Build the image based on the Dockerfile
 docker build -t $IMAGE_NAME -f Dockerfile .

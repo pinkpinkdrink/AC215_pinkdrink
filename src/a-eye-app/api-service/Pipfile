@@ -10,6 +10,8 @@ uvicorn = "*"
 fastapi = "*"
 google-auth = "*"
 google-cloud-storage = "*"
+google-cloud-texttospeech = "*"
+googletrans= "==4.0.0rc1"
 tensorflow = "*"
 pandas = "*"
 python-multipart = "*"
@@ -18,3 +20,68 @@ pillow = "*"
 
 [requires]
 python_version = "3.8"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
