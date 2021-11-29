@@ -51,11 +51,13 @@ async def predict(file: bytes = File(...)):
         caption1 = model.predict(image_path)
         caption2 = model2.predict(image_path)
         caption3 = model3.predict(image_path)
-
-        translation1 = translator.translate(language_code, caption1)
-        translation2 = translator.translate(language_code, caption2)
-        translation3 = translator.translate(language_code, caption3)
-        translations = [translation1,translation2,translation3]
+        if language_code != "en-US":
+            translation1 = translator.translate(language_code, caption1)
+            translation2 = translator.translate(language_code, caption2)
+            translation3 = translator.translate(language_code, caption3)
+            translations = [translation1,translation2,translation3]
+        else:
+            translations = [caption1,caption2,caption3]
         
         audio_paths = synthesis(language_code, translations)
      
