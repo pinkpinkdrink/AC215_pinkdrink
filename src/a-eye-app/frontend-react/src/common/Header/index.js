@@ -45,7 +45,7 @@ const Header = (props) => {
     const options = [
         'English',
         'French',
-        'Persian',
+        'Spanish',
         'Chinese',
       ];
 
