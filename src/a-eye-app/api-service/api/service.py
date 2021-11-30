@@ -5,9 +5,10 @@ import asyncio
 import os
 from fastapi import File, Cookie
 from tempfile import TemporaryDirectory
-from api import model, model2, model3
-from api import text2audio, translator
+from api import translator, download_model_python
 from api.text2audio import synthesis
+from api import model, model2, model3
+
 
 # Setup FastAPI app
 app = FastAPI(
@@ -15,6 +16,13 @@ app = FastAPI(
     description="API Server",
     version="v1"
 )
+
+@app.on_event("startup")
+async def startup():
+    if not os.path.isdir('/persistent/model_weights'):
+        asyncio.create_task(download_model_python.download())
+    else:
+        print('Model weights have downloaded')
 
 # Enable CORSMiddleware
 app.add_middleware(
@@ -31,6 +39,8 @@ async def get_index():
     return {
         "message": "Welcome to the API Service"
     }
+
+
 
 @app.post("/predict")
 async def predict(file: bytes = File(...)):

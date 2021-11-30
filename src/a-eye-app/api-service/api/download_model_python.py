@@ -47,4 +47,3 @@ def download():
         blob_path = i
         local_dir = os.path.join(local_models_path, i )#trainingData folder in local
         download_from_bucket(bucket_name, blob_path, local_dir, project_id)
-download()
