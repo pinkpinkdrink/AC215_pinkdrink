@@ -13,7 +13,7 @@ ENV LANG=C.UTF-8
 # container entry point.
 ENV PYENV_SHELL=/bin/bash
 
-ENV GOOGLE_APPLICATION_CREDENTIALS=secrets/gcp-service.json
+ENV GOOGLE_APPLICATION_CREDENTIALS=secrets/admin.json
 
 # Tell Python to disable buffering so we don't lose any logs.
 ENV PYTHONUNBUFFERED=1
