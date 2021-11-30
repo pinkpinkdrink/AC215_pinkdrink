@@ -137,3 +137,4 @@ dmypy.json
 # persistent and secret
 *secrets
 *persistent-folder
+src/a-eye-app/api-service/audios

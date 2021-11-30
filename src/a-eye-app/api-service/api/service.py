@@ -20,9 +20,14 @@ app = FastAPI(
 @app.on_event("startup")
 async def startup():
     if not os.path.isdir('/persistent/model_weights'):
-        asyncio.create_task(download_model_python.download())
+        download_model_python.download()
     else:
-        print('Model weights have downloaded')
+        print('Model weights have been downloaded')
+    if not os.path.isdir('/persistent/language'):
+        os.mkdir('/persistent/language')
+        file = open('/persistent/language/language_setting.txt', "w") 
+        file.write('en-US')
+
 
 # Enable CORSMiddleware
 app.add_middleware(
