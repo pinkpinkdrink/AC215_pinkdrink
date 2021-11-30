@@ -33,4 +33,8 @@ Project Organization
 --------
 In a-eye-app, we have four containers for api-service, frontend-react, frontend-simple, and deployment.
 
+Main APIs: 
+generate caption, translation, text to audio
+
+
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
