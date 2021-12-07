@@ -33,6 +33,20 @@ const styles = theme => ({
         height: "500px",
         width: "500px"
     },
+    processing: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        align: "center",
+        margin: "auto",
+        backgroundImage: "url('Spinner.gif')",
+        backgroundSize: '100%',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        height: "200px",
+        width: "200px"
+    },
     fileInput: {
         display: "none",
     },

@@ -6,6 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
 
 import DataService from "../../services/DataService";
 import styles from './styles';
@@ -20,6 +21,7 @@ const Home = (props) => {
     // Component States
     const [image, setImage] = useState(null);
     const [prediction, setPrediction] = useState(null);
+    const [isProcessing, setIsProcessing] = useState(null);
 
     // Setup Component
     useEffect(() => {
@@ -32,15 +34,19 @@ const Home = (props) => {
     }
     const handleOnChange = (event) => {
         console.log(event.target.files);
-        setImage(URL.createObjectURL(event.target.files[0]));
+        if (event.target.files.length > 0){
+            setImage(URL.createObjectURL(event.target.files[0]));
+            setIsProcessing(1);
 
-        var formData = new FormData();
-        formData.append("file", event.target.files[0]);
-        DataService.Predict(formData)
-            .then(function (response) {
-                console.log(response.data);
-                setPrediction(response.data);
-            })
+            var formData = new FormData();
+            formData.append("file", event.target.files[0]);
+            DataService.Predict(formData)
+                .then(function (response) {
+                    console.log(response.data);
+                    setPrediction(response.data);
+                    setIsProcessing(0);
+                })
+        }
     }
     const handlePlayAudio = (path) => {
         let response = DataService.Text2Audio(path)
@@ -52,7 +58,7 @@ const Home = (props) => {
         <div className={classes.root}>
             <main className={classes.main}>
                 <Container maxWidth="md" className={classes.container}>
-                    {prediction &&
+                    {prediction && !isProcessing ?
                         <Table className={classes.captionTable}>
                             <TableHead>
                                 <TableRow>
@@ -71,7 +77,12 @@ const Home = (props) => {
                                     </TableCell>
                                 </TableRow>)}
                             </TableBody>
-                        </Table>
+                        </Table>: null
+                    }
+                    {
+                    isProcessing ?<div className={classes.processing}><Typography variant="h4" gutterBottom align='center'>
+                    <span className={classes.caption}>Processing...</span>
+                </Typography></div>: null
                     }
                     <div className={classes.dropzone} onClick={() => handleImageUploadClick()}>
                         <input
