@@ -40,7 +40,7 @@ const Home = (props) => {
 
             var formData = new FormData();
             formData.append("file", event.target.files[0]);
-            DataService.Predict(formData)
+            DataService.Predict(formData, props.options[props.selectedIndex])
                 .then(function (response) {
                     console.log(response.data);
                     setPrediction(response.data);

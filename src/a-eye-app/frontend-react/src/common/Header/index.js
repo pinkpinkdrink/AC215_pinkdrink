@@ -22,32 +22,19 @@ const Header = (props) => {
 
     // State
     const [anchorEl, setAnchorEl] = useState(null);
-    const [selectedIndex, setSelectedIndex] = useState(0);
     const open = Boolean(anchorEl);
     const handleClickListItem = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
     const handleMenuItemClick = (event, index) => {
-        setSelectedIndex(index);
+        props.setSelectedIndex(index);
         setAnchorEl(null);
-
-        DataService.SetLanguage(options[index])
-            .then(function (response) {
-                console.log(response.data);
-            })
     };
 
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-    const options = [
-        'English',
-        'French',
-        'Spanish',
-        'Chinese',
-      ];
 
     return (
         <div className={classes.root}>
@@ -78,7 +65,7 @@ const Header = (props) => {
                             <ListItemText
                                 disableTypography
                                 primary={<Typography type="body2" style={{ color: '#FFFFFF' }}>Language</Typography>}
-                                secondary={<Typography style={{ color: '#C4C4C4' }}>{options[selectedIndex]}</Typography>}
+                                secondary={<Typography style={{ color: '#C4C4C4' }}>{props.options[props.selectedIndex]}</Typography>}
                             />
                             </ListItem>
                         </List>
@@ -92,10 +79,10 @@ const Header = (props) => {
                             role: 'listbox',
                             }}
                         >
-                            {options.map((option, index) => (
+                            {props.options.map((option, index) => (
                             <MenuItem
                                 key={option}
-                                selected={index === selectedIndex}
+                                selected={index === props.selectedIndex}
                                 onClick={(event) => handleMenuItemClick(event, index)}
                             >
                                 {option}

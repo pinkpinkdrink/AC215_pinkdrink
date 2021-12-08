@@ -48,12 +48,17 @@ async def get_index():
 
 
 @app.post("/predict")
-async def predict(file: bytes = File(...)):
+async def predict(file: bytes = File(...), language: str = Query(..., description="Language")):
     print("predict file:", len(file), type(file))
-    language_file =  open('/persistent/language/language_setting.txt')
-    language_code = language_file.read()
-    if language_code == None:
-        language_code = 'en-US'
+
+    if language == 'French':
+        language_code = 'fr'
+    elif language == 'Spanish':
+        language_code = 'es'
+    elif language == 'Chinese':
+        language_code = 'zh-CN'
+    else:
+        language_code ='en-US'
 
     print('language_code:', language_code)
   
@@ -85,25 +90,4 @@ async def predict(file: bytes = File(...)):
 async def text2audio(path: str = Query(..., description="Audio path")):
     print(path)
     return FileResponse(path, media_type="audio/mp3")
-
-@app.post("/set-language")
-async def setLanguage(language: str = Query(..., description="Language")):
-    print(language)
-    # TODO: save language setting for later access
-    language_code ='en-US'
-    if language == 'English':
-        language_code = 'en-US'
-    elif language == 'French':
-        language_code = 'fr'
-    elif language == 'Spanish':
-        language_code = 'es'
-    elif language == 'Chinese':
-        language_code = 'zh-CN'
-    else:
-        language_code ='en-US'
-
-    file = open('/persistent/language/language_setting.txt', "w") 
-    file.write(language_code)
-    file.close()
-    return 'Language was set to {}'.format(language)
 

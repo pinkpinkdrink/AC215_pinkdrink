@@ -10,7 +10,7 @@ const AppRouter = (props) => {
   return (
     <React.Fragment>
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/" render={(props2) => (<Home {...props2} selectedIndex={props.selectedIndex} options={props.options}/>)} />
         <Route component={Error404} />
       </Switch>
     </React.Fragment>

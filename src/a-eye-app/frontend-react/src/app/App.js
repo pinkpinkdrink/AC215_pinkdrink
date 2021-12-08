@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import {
   ThemeProvider,
@@ -16,6 +16,13 @@ import DataService from '../services/DataService';
 const App = (props) => {
 
   console.log("================================== App ======================================");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const options = [
+    'English',
+    'French',
+    'Spanish',
+    'Chinese',
+  ];
 
   // Init Data Service
   DataService.Init();
@@ -26,9 +33,9 @@ const App = (props) => {
       <CssBaseline />
       <ThemeProvider theme={Theme}>
         <Router basename="/">
-          <Header></Header>
+          <Header selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} options={options}></Header>
           <Content>
-            <AppRoutes />
+            <AppRoutes selectedIndex={selectedIndex} options={options}/>
           </Content>
           <Footer></Footer>
         </Router>
