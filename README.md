@@ -51,22 +51,28 @@ The main code for the app can be found under the `src` directory. Under `src`, e
 
 
 ### Instructions to Run Locally:
-In command line, under folder /api-service:
-start backend container:
+In command line,  
+```console
+$ cd src/a-eye-app/api-service
+```
+Start backend container: 
 ```console
 $ sh docker-shell.sh
 ```
-inside backend container, start backend server:
+Inside backend container, start backend server:
 ```console
 $ unicorn_server
 ```
 In a separate shell:
-In command line, under folder /frontend-react:
-start frontend container:
+In command line,
+```console
+$ cd src/a-eye-app/frontend-react
+```
+Start frontend container:
 ```console
 $ sh docker-shell.sh
 ```
-inside frontend container, start frontend server:
+Inside frontend container, start frontend server:
 ```console
 $ yarn install
 $ yarn start
