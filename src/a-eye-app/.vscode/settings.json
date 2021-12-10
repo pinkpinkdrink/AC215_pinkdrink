@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./persistent-folder/CATR_model/catr",
+        "./persistent-folder/CATR_model/catr"
+    ]
+}

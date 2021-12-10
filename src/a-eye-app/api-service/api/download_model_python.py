@@ -12,7 +12,7 @@ def findOccurrences(s, ch): # to find position of '/' in blob path ,used to crea
 
 def download_from_bucket(bucket_name, blob_path, local_path, project_id):    
     # Create this folder locally
-    if not os.path.exists(local_path):
+    if not os.path.exists('local_path'):
         os.makedirs(local_path)        
 
     storage_client = storage.Client(project = project_id) # PROJECT ID 

@@ -180,6 +180,7 @@ def evaluate(encoder,decoder,tokenizer, image):
         dec_input = tf.expand_dims([predicted_id], 0)
 
     attention_plot = attention_plot[:len(result), :]
+    result = result.replace('<unk>','')
     return result, attention_plot
 
 def predict(image_path):

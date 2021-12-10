@@ -12,12 +12,13 @@ def synthesis(language_code, text_files):
     client = texttospeech.TextToSpeechClient()
     counter = 1
     audio_paths = []
-    
+   
     for text_file in text_files:
         print(text_file)
         audio_name = 'output' +'_'+str(counter)+ '.mp3'
         audio_path = os.path.join('audios', audio_name)
-
+        if not os.path.exists('audios'):
+            os.makedirs('audios')    
         synthesis_input = texttospeech.SynthesisInput(text=text_file)
             # Build the voice request
         voice = texttospeech.VoiceSelectionParams(
