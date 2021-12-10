@@ -50,6 +50,28 @@ The main code for the app can be found under the `src` directory. Under `src`, e
       └── test_project.py
 
 
+### Instructions to Run Locally:
+In command line, under folder /api-service:
+start backend container:
+```console
+$ sh docker-shell.sh
+```
+inside backend container, start backend server:
+```console
+$ unicorn_server
+```
+In a separate shell:
+In command line, under folder /frontend-react:
+start frontend container:
+```console
+$ sh docker-shell.sh
+```
+inside frontend container, start frontend server:
+```console
+$ yarn install
+$ yarn start
+```
+then you will find the application at `localhost:3000` in the browser and the backend server is running at `localhost:9000`.
 
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
