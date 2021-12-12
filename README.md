@@ -80,8 +80,10 @@ $ yarn start
 ```
 then you will find the application at `localhost:3000` in the browser and the backend server is running at `localhost:9000`.
 
+
 Deploy A-Eye-App to K8s Cluster
 ------------
+
 ## API's to enable in GCP for Project
 Search for each of these in the GCP search bar and click enable to enable these API's
 * Compute Engine API
