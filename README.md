@@ -50,7 +50,8 @@ The main code for the app can be found under the `src` directory. Under `src`, e
       └── test_project.py
 
 
-### Instructions to Run Locally:
+Instructions to Deploy Locally
+------------
 In command line,  
 ```console
 $ cd src/a-eye-app/api-service
@@ -79,5 +80,67 @@ $ yarn start
 ```
 then you will find the application at `localhost:3000` in the browser and the backend server is running at `localhost:9000`.
 
+Deploy A-Eye-App to K8s Cluster
+------------
+## API's to enable in GCP for Project
+Search for each of these in the GCP search bar and click enable to enable these API's
+* Compute Engine API
+* Service Usage API
+* Cloud Resource Manager API
+* Google Container Registry API
+* Kubernetes Engine API
+
+## Start Deployment Docker Container
+-  `cd deployment`
+- Run `sh docker-shell.sh` or `docker-shell.bat` for windows
+- Check versions of tools
+`gcloud --version`
+`kubectl version`
+`kubectl version --client`
+
+- Check if make sure you are authenticated to GCP
+- Run `gcloud auth list`
+
+## Build and Push Docker Containers to GCR
+**This step is only required if you have NOT already done this**
+```
+ansible-playbook deploy-docker-images.yml -i inventory.yml
+```
+# Deploy to Kubernetes Cluster
+We will use ansible to create and deploy the  app into a Kubernetes Cluster
+
+
+### Create & Deploy Cluster
+```
+ansible-playbook deploy-k8s-cluster.yml -i inventory.yml --extra-vars cluster_state=present
+```
+
+### Try some kubectl commands
+```
+kubectl get all
+kubectl get all --all-namespaces
+kubectl get pods --all-namespaces
+```
+
+```
+kubectl get componentstatuses
+kubectl get nodes
+```
+
+### If you want to shell into a container in a Pod
+```
+kubectl get pods --namespace=a-eye-app-cluster-namespace
+kubectl get pod api-5d4878c545-47754 --namespace=a-eye-app-cluster-namespace
+kubectl exec --stdin --tty api-5d4878c545-47754 --namespace=a-eye-app-cluster-namespace  -- /bin/bash
+```
+
+### View the App
+* Copy the `nginx_ingress_ip` from the terminal from the create cluster command
+* Go to `http://<YOUR INGRESS IP>.sslip.io`
+
+### Delete Cluster
+```
+ansible-playbook deploy-k8s-cluster.yml -i inventory.yml --extra-vars cluster_state=absent
+```
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
