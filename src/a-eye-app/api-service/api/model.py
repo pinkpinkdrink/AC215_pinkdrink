@@ -180,7 +180,7 @@ def evaluate(encoder,decoder,tokenizer, image):
         dec_input = tf.expand_dims([predicted_id], 0)
 
     attention_plot = attention_plot[:len(result), :]
-    result = result.replace('<unk>','')
+    
     return result, attention_plot
 
 def predict(image_path):
@@ -195,6 +195,7 @@ def predict(image_path):
         tokenizer = pickle.load(handle)
     result, _ = evaluate(encoder, decoder, tokenizer, image_path)
     caption = ' '.join(result[:-1])
+    caption = caption.replace('<unk>','')
     return caption
 
     
