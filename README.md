@@ -3,7 +3,6 @@ AC215-Project: A-Eye App
 Anita Mahinpei, Yingchen Liu
 
 ## Overview
-------------
 
 The A-Eye App is an automated image captioning app that allows users to upload an image to be captioned. The app uses three different machine learning models to generate different captions for the image. The app also provides a text-to-speech functionality that reads out the generated captions for visually impaired users. Captions can be generated in English, French, Spanish, or Chinese.
 
@@ -17,7 +16,6 @@ There is also a deprecated container, frontend-simple. This UI container is writ
 For more information about the app development process refer to our [medium article ](https://medium.com/@amahinpei/a-eye-image-captioning-app-3bf7c1d11e91).
 
 ## Project Organization
-------------
 
 The main code for the app can be found under the `src` directory. Under `src`, each docker container has a dedicated subdirectory of the same name with associated scripts that can be used to create the container. The `models` directory contains Jupyter Notebooks that were used to train the image captioning models used in the app. The `notebooks` directory contains any other notebooks used in the process of creating this app such as the EDA notebook. 
 
@@ -55,7 +53,7 @@ The main code for the app can be found under the `src` directory. Under `src`, e
 
 
 ## Deployment Instructions
-------------
+
 Prior to deployment, you must create these two empty directories:
 ```console
 $ mkdir src/a-eye-app/secrets
@@ -188,7 +186,7 @@ ansible-playbook deploy-create-instance.yml -i inventory.yml --extra-vars cluste
 ```
 
 ## Model Code Adapted From
--------------------
+
 * [How to Develop a Deep Learning Photo Caption Generator from Scratch](https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/)
 * [Tensorflow Image Captioning with Visual Attention Tutorial](https://github.com/tensorflow/docs/blob/master/site/en/tutorials/text/image_captioning.ipynb)
 
