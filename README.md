@@ -188,5 +188,5 @@ ansible-playbook deploy-create-instance.yml -i inventory.yml --extra-vars cluste
 
 * [How to Develop a Deep Learning Photo Caption Generator from Scratch](https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/)
 * [Tensorflow Image Captioning with Visual Attention Tutorial](https://github.com/tensorflow/docs/blob/master/site/en/tutorials/text/image_captioning.ipynb)
-
+* [A tensorflow 2.0 with keras implementation trained on MS COCO dataset](https://github.com/Abdalrahman112/Image-captioning)
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
