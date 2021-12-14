@@ -2,6 +2,8 @@ AC215-Project: A-Eye App
 ==============================
 Anita Mahinpei, Yingchen Liu
 
+[A-Eye App Demo](https://youtu.be/1GRi85gAUbw)
+
 ## Overview
 
 The A-Eye App is an automated image captioning app that allows users to upload an image to be captioned. The app uses three different machine learning models to generate different captions for the image. The app also provides a text-to-speech functionality that reads out the generated captions for visually impaired users. Captions can be generated in English, French, Spanish, or Chinese.
