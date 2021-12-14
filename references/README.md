@@ -23,3 +23,4 @@
 
 2. [Tensorflow Image Captioning with Visual Attention Tutorial](https://github.com/tensorflow/docs/blob/master/site/en/tutorials/text/image_captioning.ipynb)
 
+3. [A tensorflow 2.0 with keras implementation trained on MS COCO dataset](https://github.com/Abdalrahman112/Image-captioning)
