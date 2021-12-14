@@ -20,25 +20,24 @@ For more information about the app development process refer to our [medium arti
 The main code for the app can be found under the `src` directory. Under `src`, each docker container has a dedicated subdirectory of the same name with associated scripts that can be used to create the container. The `models` directory contains Jupyter Notebooks that were used to train the image captioning models used in the app. The `notebooks` directory contains any other notebooks used in the process of creating this app such as the EDA notebook. 
 
       .
+      ├── .gitignore
       ├── LICENSE
       ├── Makefile
-      ├── README.md
-      ├── .gitignore
       ├── models
-      │   ├── Flickr8Production.ipynb
       │   ├── Flickr8Model.ipynb
+      │   ├── Flickr8Production.ipynb
       │   ├── image_captioning_inception(frozen)_gru.ipynb
       │   └── image_captioning_inception_LSTM.ipynb
       ├── notebooks
+      │   ├── calculate_bleuscore.ipynb
       │   └── MSCOCO-EDA.ipynb
-      │   └── calculate_bleuscore.ipynb
+      ├── README.md
       ├── references
+      │   └── README.md
       ├── requirements.txt
       ├── setup.py
       ├── src
       │   ├── __init__.py
-      │   ├── build_features.py
-      │   ├── setup.sh
       │   └── a-eye-app
       │     ├── api-service
       │     ├── deployment
