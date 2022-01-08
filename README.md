@@ -1,4 +1,5 @@
-AC215-Project: A-Eye App
+A-Eye Image Captioning App
+
 ==============================
 Anita Mahinpei, Yingchen Liu
 
