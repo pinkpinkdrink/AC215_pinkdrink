@@ -1,5 +1,4 @@
 A-Eye Image Captioning App
-
 ==============================
 Anita Mahinpei, Yingchen Liu
 
